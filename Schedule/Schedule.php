@@ -89,7 +89,7 @@ class Schedule
 
     /**
      * @param string $hour
-     * @return Job
+     * @return Schedule
      */
     public function setHour($hour)
     {
@@ -108,7 +108,7 @@ class Schedule
 
     /**
      * @param string $dayOfMounth
-     * @return Job
+     * @return Schedule
      */
     public function setDayOfMounth($dayOfMounth)
     {
