@@ -180,4 +180,34 @@ class Schedule
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getPattern()
+    {
+        return $this->pattern;
+    }
+
+    /**
+     * @param string $pattern
+     * @return Schedule
+     */
+    public function setPattern($pattern)
+    {
+        $this->pattern = $pattern;
+
+        return $this;
+    }
+
+    /**
+     * set the cron pattern
+     *
+     * @param string $expression
+     * @return Schedule
+     */
+    public function cron($expression)
+    {
+        return $this->setPattern($expression);
+    }
 }
