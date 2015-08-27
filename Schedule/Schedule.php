@@ -61,6 +61,13 @@ class Schedule
     private $year;
 
     /**
+     * the full time string
+     *
+     * @var string
+     */
+    private $pattern;
+
+    /**
      * @return string
      */
     public function getMinute()
