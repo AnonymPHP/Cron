@@ -210,4 +210,81 @@ class Schedule
     {
         return $this->setPattern($expression);
     }
+
+
+    /**
+     * Schedule the event to run hourly.
+     *
+     * @return $this
+     */
+    public function hourly()
+    {
+        return $this->cron('0 * * * * *');
+    }
+    /**
+     * Schedule the event to run daily.
+     *
+     * @return $this
+     */
+    public function daily()
+    {
+        return $this->cron('0 0 * * * *');
+    }
+
+
+    /**
+     * Schedule the event to run monthly.
+     *
+     * @return $this
+     */
+    public function monthly()
+    {
+        return $this->cron('0 0 1 * * *');
+    }
+    /**
+     * Schedule the event to run yearly.
+     *
+     * @return $this
+     */
+    public function yearly()
+    {
+        return $this->cron('0 0 1 1 * *');
+    }
+    /**
+     * Schedule the event to run every minute.
+     *
+     * @return $this
+     */
+    public function everyMinute()
+    {
+        return $this->cron('* * * * * *');
+    }
+    /**
+     * Schedule the event to run every five minutes.
+     *
+     * @return $this
+     */
+    public function everyFiveMinutes()
+    {
+        return $this->cron('*/5 * * * * *');
+    }
+    /**
+     * Schedule the event to run every ten minutes.
+     *
+     * @return $this
+     */
+    public function everyTenMinutes()
+    {
+        return $this->cron('*/10 * * * * *');
+    }
+    /**
+     * Schedule the event to run every thirty minutes.
+     *
+     * @return $this
+     */
+    public function everyThirtyMinutes()
+    {
+        return $this->cron('0,30 * * * * *');
+    }
+
 }
