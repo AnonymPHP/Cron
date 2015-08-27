@@ -421,5 +421,25 @@ class Schedule
         return $this->days(0);
     }
 
-
+    /**
+     * Schedule the event to run weekly.
+     *
+     * @return $this
+     */
+    public function weekly()
+    {
+        return $this->cron('0 0 * * 0 *');
+    }
+    /**
+     * Schedule the event to run weekly on a given day and time.
+     *
+     * @param  int  $day
+     * @param  string  $time
+     * @return $this
+     */
+    public function weeklyOn($day, $time = '0:0')
+    {
+        $this->dailyAt($time);
+        return $this->spliceIntoPosition(5, $day);
+    }
 }
