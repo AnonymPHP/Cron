@@ -9,8 +9,3 @@
  */
 
 include 'vendor/autoload.php';
-
-$schema = new \Anonym\Components\Cron\Schedule\Schedule();
-$schema->saturdays();
-
-printf('schedule : %s', $schema);
