@@ -9,7 +9,7 @@
  */
 
 
-namespace Anonym\Components\Cron\Job;
+namespace Anonym\Components\Cron\Schedule;
 
 /**
  * Class Job
