@@ -200,6 +200,21 @@ class Schedule
         return $this;
     }
 
+
+    /**
+     * Splice the given value into the given position of the expression.
+     *
+     * @param  int  $position
+     * @param  string  $value
+     * @return $this
+     */
+    protected function spliceIntoPosition($position, $value)
+    {
+        $segments = explode(' ', $this->pattern);
+        $segments[$position - 1] = $value;
+        return $this->cron(implode(' ', $segments));
+    }
+
     /**
      * set the cron pattern
      *
