@@ -442,4 +442,34 @@ class Schedule
         $this->dailyAt($time);
         return $this->spliceIntoPosition(5, $day);
     }
+
+
+    /**
+     * resolve the pattern
+     *
+     * @return string
+     */
+    private function resolvePattern()
+    {
+        if(null !== $pattern = $this->pattern)
+        {
+            return $pattern;
+        }
+
+        return $this->createPatternWithVariables();
+    }
+    /**
+     * use the class to string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+         if(false !== $pattern = $this->resolvePattern())
+         {
+             return $pattern;
+         }
+
+        return '';
+    }
 }
