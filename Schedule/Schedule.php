@@ -65,7 +65,7 @@ class Schedule
      *
      * @var string
      */
-    private $pattern;
+    private $pattern = '* * * * * *';
 
     /**
      * @return string
@@ -486,30 +486,13 @@ class Schedule
     }
 
     /**
-     *
-     * check the pattern
-     *
-     * @return string|null
-     */
-    private function checkPatternSplice()
-    {
-        $splice = explode(' ', $this->pattern);
-
-        if(count($splice) === 6)
-        {
-            return $this->pattern;
-        }
-
-        return null;
-    }
-    /**
      * resolve the pattern
      *
      * @return string
      */
     private function resolvePattern()
     {
-        if (null !== $pattern = $this->checkPatternSplice()) {
+        if (null !== $pattern = $this->pattern) {
             return $pattern;
         }
 
