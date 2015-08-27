@@ -15,7 +15,7 @@ namespace Anonym\Components\Cron\Job;
  * Class Job
  * @package Anonym\Components\Cron\Job
  */
-class Job
+class Schedule
 {
 
     /**
