@@ -165,7 +165,7 @@ class Schedule
 
     /**
      * @param string $year
-     * @return Job
+     * @return Schedule
      */
     public function setYear($year)
     {
