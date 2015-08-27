@@ -302,4 +302,16 @@ class Schedule
         return $this->cron('0,30 * * * * *');
     }
 
+    /**
+     * Set the days of the week the command should run on.
+     *
+     * @param  array|dynamic  $days
+     * @return $this
+     */
+    public function days($days)
+    {
+        $days = is_array($days) ? $days : func_get_args();
+        return $this->spliceIntoPosition(5, implode(',', $days));
+    }
+
 }
