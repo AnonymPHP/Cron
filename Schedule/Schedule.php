@@ -127,7 +127,7 @@ class Schedule
 
     /**
      * @param string $mounth
-     * @return Job
+     * @return Schedule
      */
     public function setMounth($mounth)
     {
