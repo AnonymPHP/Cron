@@ -313,5 +313,113 @@ class Schedule
         $days = is_array($days) ? $days : func_get_args();
         return $this->spliceIntoPosition(5, implode(',', $days));
     }
+    /**
+     * Schedule the command at a given time.
+     *
+     * @param  string  $time
+     * @return $this
+     */
+    public function at($time)
+    {
+        return $this->dailyAt($time);
+    }
+    /**
+     * Schedule the event to run daily at a given time (10:00, 19:30, etc).
+     *
+     * @param  string  $time
+     * @return $this
+     */
+    public function dailyAt($time)
+    {
+        $segments = explode(':', $time);
+        return $this->spliceIntoPosition(2, (int) $segments[0])
+            ->spliceIntoPosition(1, count($segments) == 2 ? (int) $segments[1] : '0');
+    }
+    /**
+     * Schedule the event to run twice daily.
+     *
+     * @param  int  $first
+     * @param  int  $second
+     * @return $this
+     */
+    public function twiceDaily($first = 1, $second = 13)
+    {
+        $hours = $first.','.$second;
+        return $this->spliceIntoPosition(1, 0)
+            ->spliceIntoPosition(2, $hours);
+    }
+    /**
+     * Schedule the event to run only on weekdays.
+     *
+     * @return $this
+     */
+    public function weekdays()
+    {
+        return $this->spliceIntoPosition(5, '1-5');
+    }
+    /**
+     * Schedule the event to run only on Mondays.
+     *
+     * @return $this
+     */
+    public function mondays()
+    {
+        return $this->days(1);
+    }
+    /**
+     * Schedule the event to run only on Tuesdays.
+     *
+     * @return $this
+     */
+    public function tuesdays()
+    {
+        return $this->days(2);
+    }
+    /**
+     * Schedule the event to run only on Wednesdays.
+     *
+     * @return $this
+     */
+    public function wednesdays()
+    {
+        return $this->days(3);
+    }
+    /**
+     * Schedule the event to run only on Thursdays.
+     *
+     * @return $this
+     */
+    public function thursdays()
+    {
+        return $this->days(4);
+    }
+    /**
+     * Schedule the event to run only on Fridays.
+     *
+     * @return $this
+     */
+    public function fridays()
+    {
+        return $this->days(5);
+    }
+    /**
+     * Schedule the event to run only on Saturdays.
+     *
+     * @return $this
+     */
+    public function saturdays()
+    {
+        return $this->days(6);
+    }
+    /**
+     * Schedule the event to run only on Sundays.
+     *
+     * @return $this
+     */
+    public function sundays()
+    {
+        return $this->days(0);
+    }
+
 
 }
