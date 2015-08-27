@@ -466,6 +466,11 @@ class Schedule
         return $this->spliceIntoPosition(5, $day);
     }
 
+    /**
+     * if pattern is null, create patten with private variables
+     *
+     * @return string
+     */
     private function createPatternWithVariables()
     {
         $variables = [
@@ -477,9 +482,26 @@ class Schedule
             $this->getYear(),
         ];
 
-
+        return join(' ', $variables);
     }
 
+    /**
+     *
+     * check the pattern
+     *
+     * @return string|null
+     */
+    private function checkPatternSplice()
+    {
+        $splice = explode(' ', $this->pattern);
+
+        if(count($splice) === 6)
+        {
+            return $this->pattern;
+        }
+
+        return null;
+    }
     /**
      * resolve the pattern
      *
@@ -487,7 +509,7 @@ class Schedule
      */
     private function resolvePattern()
     {
-        if (null !== $pattern = $this->pattern) {
+        if (null !== $pattern = $this->checkPatternSplice()) {
             return $pattern;
         }
 
