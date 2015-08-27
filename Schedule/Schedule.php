@@ -146,7 +146,7 @@ class Schedule
 
     /**
      * @param string $dayOfWeek
-     * @return Job
+     * @return Schedule
      */
     public function setDayOfWeek($dayOfWeek)
     {
