@@ -17,5 +17,17 @@ namespace Anonym\Components\Cron\Task;
  */
 class ExecTask extends TaskReposity
 {
+    /**
+     * register the command
+     *
+     * @param string $command
+     * @return Task
+     */
+    public function setCommand($command)
+    {
+        parent::setCommand($command);
 
+        return $this;
+    }
 }
+
