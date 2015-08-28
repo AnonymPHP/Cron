@@ -29,5 +29,14 @@ class ExecTask extends TaskReposity
 
         return $this;
     }
+
+    /**
+     * @param array $parameters
+     * @return ExecTask
+     */
+    public function setParameters(array $parameters = [])
+    {
+
+    }
 }
 
