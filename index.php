@@ -10,6 +10,6 @@
 
 include 'vendor/autoload.php';
 
-$phptask = new \Anonym\Components\Cron\Task\PhpFileTask();
-$phptask->setCommand('/path/to/test.php');
+$phptask = new \Anonym\Components\Cron\Task\ExecTask();
+$phptask->setCommand('ls -test');
 echo $phptask->getCommand();
