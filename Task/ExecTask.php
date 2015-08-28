@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Cron\Task;
 
-
+/**
+ * Class ExecTask
+ * @package Anonym\Components\Cron\Task
+ */
 class ExecTask extends TaskReposity
 {
 
