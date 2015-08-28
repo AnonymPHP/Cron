@@ -15,7 +15,7 @@ namespace Anonym\Components\Cron\Task;
  * Class PhpTask
  * @package Anonym\Components\Cron\Task
  */
-class PhpTask extends Task
+class PhpTask extends TaskReposity
 {
 
     /**
