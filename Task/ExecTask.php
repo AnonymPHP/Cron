@@ -8,8 +8,11 @@
  * Thanks for using
  */
 
-include 'vendor/autoload.php';
 
-$phptask = new \Anonym\Components\Cron\Task\PhpFileTask();
-$phptask->setCommand('/path/to/test.php');
-echo $phptask->getCommand();
+namespace Anonym\Components\Cron\Task;
+
+
+class ExecTask extends TaskReposity
+{
+
+}
