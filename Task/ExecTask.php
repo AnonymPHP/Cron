@@ -43,6 +43,7 @@ class ExecTask extends TaskReposity
         }
 
         $this->setCommand($this->getCommand().' '. $content);
+        return $this;
     }
 }
 
