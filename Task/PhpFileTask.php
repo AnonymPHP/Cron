@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Cron\Task;
 
-
+/**
+ * Class PhpFileTask
+ * @package Anonym\Components\Cron\Task
+ */
 class PhpFileTask extends PhpTask
 {
 
