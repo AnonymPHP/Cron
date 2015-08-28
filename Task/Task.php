@@ -30,6 +30,17 @@ class Task
     }
 
     /**
+     * create a new exec task instance
+     *
+     * @param string $command
+     * @param array $parameters
+     * @return ExecTask
+     */
+    public static function exec($command, $parameters = [])
+    {
+        return new ExecTask($command, $parameters);
+    }
+    /**
      * call the file command
      *
      * @param string $command
