@@ -41,5 +41,7 @@ class PhpTask extends Task
     public function setCommand($command)
     {
         $this->command = $this->resolvePhpInstalledPath().' '.$command;
+
+        return $this;
     }
 }
