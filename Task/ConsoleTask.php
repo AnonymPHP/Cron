@@ -12,7 +12,7 @@
 namespace Anonym\Components\Cron\Task;
 
 
-class ConsoleTask extends TaskReposity
+class ConsoleTask extends PhpTask
 {
 
 }
