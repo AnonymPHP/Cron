@@ -19,9 +19,17 @@ class Task
 {
 
     /**
+     * call the command, command must be a Closure or string
+     *
      * @param string|Closure $command
+     * @return TaskInterface
      */
     public static function call($command)
+    {
+        return $command instanceof Closure ? new ClosureTask($command) : new ExecTask($command);
+    }
+
+    public static function file($command)
     {
 
     }
