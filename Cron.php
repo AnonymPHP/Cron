@@ -57,7 +57,7 @@ class Cron
 
         foreach($events as $event)
         {
-            $events->execute();
+            $event->execute();
         }
     }
 

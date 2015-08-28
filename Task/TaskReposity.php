@@ -14,6 +14,8 @@ namespace Anonym\Components\Cron\Task;
 use Anonym\Components\Cron\Schedule\Schedule;
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Symfony\Component\Process\Process;
+
 /**
  * Class TaskReposity
  * @package Anonym\Components\Cron\Task
@@ -35,6 +37,12 @@ class TaskReposity extends Schedule
     protected $command;
 
     /**
+     * the output
+     *
+     * @var string
+     */
+    private $output;
+    /**
      * set the command and create a new instance
      *
      * @param mixed $command
@@ -44,6 +52,28 @@ class TaskReposity extends Schedule
         $this->setCommand($command);
     }
 
+    /**
+     * Get the default output depending on the OS.
+     *
+     * @return string
+     */
+    protected function getDefaultOutput()
+    {
+        return (strpos(strtoupper(PHP_OS), 'WIN') === 0) ? 'NUL' : '/dev/null';
+    }
+
+    /**
+     * build the exec command
+     *
+     * @return string
+     */
+    private function buildCommand()
+    {
+        $command = $this->getCommand();
+        $output = $this->output !== null ? $this->output : $this->getDefaultOutput();
+
+        return $command.' > '.$output.' 2>&1';
+    }
     /**
      * @return string
      */
@@ -99,7 +129,18 @@ class TaskReposity extends Schedule
      */
     public function execute()
     {
-         chdir($this->resolveBasePath());
+        if($this->command instanceof ClosureTask)
+        {
+           $this->runClosureTask();
+        }
 
+         $this->runExecTask();
+    }
+
+    private function runExecTask()
+    {
+        chdir($this->resolveBasePath());
+        $process = new Process($this->buildCommand());
+        $process->run();
     }
 }
