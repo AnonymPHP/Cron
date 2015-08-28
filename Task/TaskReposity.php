@@ -27,6 +27,16 @@ class TaskReposity extends Schedule
     protected $command;
 
     /**
+     * set the command and create a new instance
+     *
+     * @param mixed $command
+     */
+    public function __construct($command)
+    {
+        $this->setCommand($command);
+    }
+
+    /**
      * @return string
      */
     public function getCommand()
