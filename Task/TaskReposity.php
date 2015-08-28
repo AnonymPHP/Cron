@@ -15,7 +15,7 @@ use Anonym\Components\Cron\Schedule\Schedule;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Symfony\Component\Process\Process;
-
+use Closure;
 /**
  * Class TaskReposity
  * @package Anonym\Components\Cron\Task
@@ -137,6 +137,18 @@ class TaskReposity extends Schedule
          $this->runExecTask();
     }
 
+    /**
+     * run the closure
+     * @param Closure $closure
+     *
+     */
+    private function runClosureTask(Closure $closure)
+    {
+        $closure();
+    }
+    /**
+     * run the exec task
+     */
     private function runExecTask()
     {
         chdir($this->resolveBasePath());
