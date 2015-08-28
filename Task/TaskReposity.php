@@ -49,7 +49,7 @@ class TaskReposity extends Schedule
      */
     public function getCommand()
     {
-        return $this->getPatternString().' '.$this->command;
+        return $this->command;
     }
 
     /**
@@ -79,7 +79,7 @@ class TaskReposity extends Schedule
             $date->setTimezone($this->timezone);
         }
 
-        return CronExpression::factory($this->expression)->isDue($date->toDateTimeString());
+        return CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
     }
     /**
      * execute the commands
