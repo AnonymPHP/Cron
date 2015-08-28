@@ -18,4 +18,17 @@ namespace Anonym\Components\Cron\Task;
 class PhpFileTask extends PhpTask
 {
 
+    /**
+     * register the command
+     *
+     * @param string $command
+     * @return Task
+     */
+    public function setCommand($command)
+    {
+        parent::setCommand($command);
+
+        return $this;
+    }
+
 }
