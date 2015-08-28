@@ -12,8 +12,8 @@
   "require": {
     "php": ">=5.4",
     "symfony/process": "~2.4",
-    "anonym-php/anonym-console": "~1.2@dev"
-
+    "anonym-php/anonym-console": "~1.2@dev",
+    "mtdowling/cron-expression": "~1.0"
   },
   "authors": [
     {
