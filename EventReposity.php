@@ -25,6 +25,11 @@ class EventReposity
      */
     private static $events;
 
+    /**
+     * add a new event to reposity
+     *
+     * @param $event
+     */
     public static function add($event)
     {
         static::$events[] = $event;
