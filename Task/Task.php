@@ -38,7 +38,7 @@ class Task
      */
     public static function exec($command, $parameters = [])
     {
-        return new ExecTask($command, $parameters);
+        return (new ExecTask($command))->setParameters($parameters);
     }
     /**
      * call the file command
