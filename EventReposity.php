@@ -11,8 +11,18 @@
 
 namespace Anonym\Components\Cron;
 
-
+/**
+ * Class EventReposity
+ * @package Anonym\Components\Cron
+ */
 class EventReposity
 {
+
+    /**
+     * the reposity of events
+     *
+     * @var array
+     */
+    private static $events;
 
 }
