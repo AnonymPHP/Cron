@@ -10,6 +10,7 @@
 
 include 'vendor/autoload.php';
 
-$phptask = new \Anonym\Components\Cron\Task\ExecTask();
-$phptask->setCommand('ls -test');
-echo $phptask->getCommand();
+$task = \Anonym\Components\Cron\Task\Task::call(function(){
+    echo 'hello world';
+});
+
