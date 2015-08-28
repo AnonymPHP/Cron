@@ -79,7 +79,8 @@ class TaskReposity extends Schedule
             $date->setTimezone($this->timezone);
         }
 
-        return CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
+        $response = CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
+        return $response;
     }
     /**
      * execute the commands
