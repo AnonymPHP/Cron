@@ -72,7 +72,7 @@ class TaskReposity extends Schedule
         $command = $this->getCommand();
         $output = $this->output !== null ? $this->output : $this->getDefaultOutput();
 
-        return $command.' > '.$output.' 2>&1';
+        return $command.' >'.$output.' 2>&1';
     }
     /**
      * @return string
@@ -152,6 +152,7 @@ class TaskReposity extends Schedule
     private function runExecTask()
     {
         chdir($this->resolveBasePath());
+        var_dump($this->buildCommand());
         $process = new Process($this->buildCommand());
         $process->run();
     }
