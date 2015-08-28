@@ -26,7 +26,7 @@
  *
  */
 
-namespace php\manager\crontab;
+namespace Anonym\Components\Cron\Manager;
 
 /**
  * Crontab Entry object
