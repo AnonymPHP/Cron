@@ -21,7 +21,7 @@ class ExecTask extends TaskReposity
      * register the command
      *
      * @param string $command
-     * @return Task
+     * @return ExecTask
      */
     public function setCommand($command)
     {
