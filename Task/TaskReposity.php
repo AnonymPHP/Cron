@@ -129,22 +129,23 @@ class TaskReposity extends Schedule
      */
     public function execute()
     {
-        if($this->command instanceof ClosureTask)
+        if($this->command instanceof Closure)
         {
            $this->runClosureTask();
+        }else{
+            $this->runExecTask();
+
         }
 
-         $this->runExecTask();
     }
 
     /**
      * run the closure
-     * @param Closure $closure
      *
      */
-    private function runClosureTask(Closure $closure)
+    private function runClosureTask()
     {
-        $closure();
+        call_user_func($this->command);
     }
     /**
      * run the exec task

@@ -9,11 +9,13 @@
  */
 
 include 'vendor/autoload.php';
-
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 $cron = new \Anonym\Components\Cron\Cron();
 $cron->event(function(){
-    return \Anonym\Components\Cron\Task\Task::call('echo foo');
+    return \Anonym\Components\Cron\Task\Task::call(function(){
+        echo 'hello world';
+    });
 });
-
 
 $cron->run();
