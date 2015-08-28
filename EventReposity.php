@@ -25,4 +25,22 @@ class EventReposity
      */
     private static $events;
 
+
+
+    /**
+     * @return array
+     */
+    public static function getEvents()
+    {
+        return self::$events;
+    }
+
+    /**
+     * @param array $events
+     */
+    public static function setEvents($events)
+    {
+        self::$events = $events;
+    }
+
 }
