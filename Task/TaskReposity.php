@@ -151,7 +151,6 @@ class TaskReposity extends Schedule
     private function runExecTask()
     {
         chdir($this->resolveBasePath());
-        var_dump($this->buildCommand());
         $process = new Process($this->buildCommand());
         $process->run();
     }
