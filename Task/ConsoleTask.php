@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Cron\Task;
 
-
+/**
+ * Class ConsoleTask
+ * @package Anonym\Components\Cron\Task
+ */
 class ConsoleTask extends PhpTask
 {
     /**
