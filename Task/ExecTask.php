@@ -36,7 +36,13 @@ class ExecTask extends TaskReposity
      */
     public function setParameters(array $parameters = [])
     {
+        $content = '';
+        foreach($parameters as $key => $value)
+        {
+            $content .= is_numeric($key) ? $value : $key.'="'.addslashes($value).'"';
+        }
 
+        $this->setCommand($this->getCommand().' '. $content);
     }
 }
 
