@@ -31,7 +31,7 @@ class TaskReposity extends Schedule
      */
     public function getCommand()
     {
-        return $this->command;
+        return $this->getPatternString().' '.$this->command;
     }
 
     /**
