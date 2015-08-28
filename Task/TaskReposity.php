@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Cron\Task;
 
-
+/**
+ * Class TaskReposity
+ * @package Anonym\Components\Cron\Task
+ */
 class TaskReposity
 {
     /**
