@@ -25,7 +25,10 @@ class EventReposity
      */
     private static $events;
 
-
+    public static function add($event)
+    {
+        static::$events[] = $event;
+    }
 
     /**
      * @return array
