@@ -12,3 +12,4 @@ include 'vendor/autoload.php';
 
 $phptask = new \Anonym\Components\Cron\Task\PhpTask();
 $phptask->setCommand('anonym make:migration');
+echo $phptask->getCommand();

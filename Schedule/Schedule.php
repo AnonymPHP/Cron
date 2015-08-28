@@ -504,7 +504,7 @@ class Schedule
      *
      * @return string
      */
-    public function __toString()
+    protected function getPatternString()
     {
         if (false !== $pattern = $this->resolvePattern()) {
             return $pattern;
