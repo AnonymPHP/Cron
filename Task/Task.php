@@ -10,12 +10,20 @@
 
 
 namespace Anonym\Components\Cron\Task;
-
+use Closure;
 /**
  * Class Task
  * @package Anonym\Components\Cron\Task
  */
 class Task
 {
+
+    /**
+     * @param string|Closure $command
+     */
+    public static function call($command)
+    {
+
+    }
 
 }
