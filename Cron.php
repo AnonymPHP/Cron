@@ -29,6 +29,7 @@ class Cron
     public function event(Closure $command)
     {
         $response = $command();
+
         if($this->resolveCommandResponse($response))
         {
             EventReposity::add($response);
@@ -43,7 +44,7 @@ class Cron
      */
     private function resolveCommandResponse($response)
     {
-        return ($response === null & $response instanceof TaskReposity) ? true:false;
+        return ($response !== null & $response instanceof TaskReposity) ? true:false;
     }
 
 

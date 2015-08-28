@@ -11,8 +11,10 @@
 include 'vendor/autoload.php';
 
 $cron = new \Anonym\Components\Cron\Cron();
-$cron->call(function(){
-    \Anonym\Components\Cron\Task\Task::call(function(){
-
+$cron->event(function(){
+   return \Anonym\Components\Cron\Task\Task::call(function(){
+        echo 'hello world';
     }) ;
 });
+
+var_dump(\Anonym\Components\Cron\EventReposity::getEvents());
