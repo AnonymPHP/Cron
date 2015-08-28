@@ -12,7 +12,7 @@
 namespace Anonym\Components\Cron\Task;
 
 
-class Task
+class TaskReposity
 {
 
 }
