@@ -82,12 +82,24 @@ class TaskReposity extends Schedule
         $response = CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
         return $response;
     }
+
+    /**
+     * get the base path
+     *
+     * @return string
+     */
+    private function resolveBasePath()
+    {
+        return defined('BASE') ? BASE: __DIR__;
+    }
+
     /**
      * execute the commands
      *
      */
     public function execute()
     {
+         chdir($this->resolveBasePath());
 
     }
 }

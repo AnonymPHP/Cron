@@ -15,4 +15,5 @@ $cron->event(function(){
     return \Anonym\Components\Cron\Task\Task::call('echo foo');
 });
 
+
 $cron->run();
