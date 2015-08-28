@@ -15,4 +15,17 @@ use Closure;
 class ClosureTask extends TaskReposity
 {
 
+    /**
+     * register the command
+     *
+     * @param Closure $command
+     * @return ClosureTask
+     */
+    public function setCommand(Closure $command)
+    {
+        $this->command = $command;
+
+        return $this;
+    }
+
 }
