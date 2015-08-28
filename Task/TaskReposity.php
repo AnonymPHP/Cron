@@ -19,6 +19,13 @@ use Anonym\Components\Cron\Schedule\Schedule;
  */
 class TaskReposity extends Schedule
 {
+
+    /**
+     * the timezone
+     *
+     * @var string
+     */
+    public $timezone;
     /**
      * the command for job
      *
@@ -57,6 +64,22 @@ class TaskReposity extends Schedule
         return $this;
     }
 
+    /**
+     * check the event for call
+     *
+     *
+     * @return bool
+     */
+    public function isDue()
+    {
+        $date = Carbon::now();
+
+        if ($this->timezone) {
+            $date->setTimezone($this->timezone);
+        }
+
+        return CronExpression::factory($this->expression)->isDue($date->toDateTimeString());
+    }
     /**
      * execute the commands
      *
