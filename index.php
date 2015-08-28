@@ -9,3 +9,10 @@
  */
 
 include 'vendor/autoload.php';
+
+$cron = new \Anonym\Components\Cron\Cron();
+$cron->event(function(){
+    return \Anonym\Components\Cron\Task\Task::call('echo foo');
+});
+
+$cron->run();

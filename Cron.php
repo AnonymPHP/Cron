@@ -55,7 +55,10 @@ class Cron
     {
         $events = $this->dueEvents(EventReposity::getEvents());
 
-
+        foreach($events as $event)
+        {
+            $events->execute();
+        }
     }
 
     /**
