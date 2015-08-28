@@ -11,18 +11,23 @@
 
 namespace Anonym\Components\Cron\Task;
 use Closure;
+use InvalidArgumentException;
 
-class ClosureTask extends TaskReposity
+class ClosureTask extends TaskReposity implements TaskInterface
 {
 
     /**
      * register the command
      *
-     * @param Closure $command
+     * @param mixed $command
      * @return ClosureTask
      */
-    public function setCommand(Closure $command)
+    public function setCommand($command)
     {
+        if(!$command instanceof Closure)
+        {
+            throw new InvalidArgumentException('Closure task must be a instance of Closure');
+        }
         $this->command = $command;
 
         return $this;
