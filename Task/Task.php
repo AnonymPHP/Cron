@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Cron\Task;
 
-
+/**
+ * Class Task
+ * @package Anonym\Components\Cron\Task
+ */
 class Task
 {
 
