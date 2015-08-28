@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Cron;
+use Anonym\Components\Cron\Task\TaskReposity;
 use Closure;
 /**
  * Class Cron
@@ -18,6 +19,13 @@ use Closure;
 class Cron
 {
 
+    /**
+     * add a new event to reposity
+     *
+     * Note: $command must be a closure
+     *
+     * @param Closure $command
+     */
     public function call(Closure $command)
     {
         $response = $command();
@@ -27,6 +35,16 @@ class Cron
         }
     }
 
+    /**
+     * resolve the response
+     *
+     * @param mixed $response
+     * @return bool
+     */
+    private function resolveCommandResponse($response)
+    {
+        return ($response === null & $response instanceof TaskReposity) ? true:false;
+    }
 
 
 }
