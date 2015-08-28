@@ -46,4 +46,19 @@ class Cron
     {
         return ($response !== null & $response instanceof TaskReposity) ? true:false;
     }
+
+    /**
+     *  run the all commands
+     *
+     */
+    public function run()
+    {
+        $events = $this->dueEvents(EventReposity::getEvents());
+
+
+    }
+
+    private function dueEvents(array $events){
+
+    }
 }

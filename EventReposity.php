@@ -23,7 +23,7 @@ class EventReposity
      *
      * @var array
      */
-    private static $events;
+    private static $events = [];
 
     /**
      * add a new event to reposity

@@ -61,7 +61,7 @@ class TaskReposity extends Schedule
      * execute the commands
      *
      */
-    public function run()
+    public function execute()
     {
 
     }
