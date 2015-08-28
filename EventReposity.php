@@ -28,7 +28,7 @@ class EventReposity
     /**
      * add a new event to reposity
      *
-     * @param $event
+     * @param string|\Closure $event
      */
     public static function add($event)
     {
