@@ -22,7 +22,7 @@ class Task
      * call the command, command must be a Closure or string
      *
      * @param string|Closure $command
-     * @return TaskReposity
+     * @return ClosureTask|ExecTask
      */
     public static function call($command)
     {
@@ -33,11 +33,22 @@ class Task
      * call the file command
      *
      * @param string $command
-     * @return TaskReposity
+     * @return PhpFileTask
      */
     public static function file($command)
     {
         return new PhpFileTask($command);
+    }
+
+    /**
+     * call the a console task
+     *
+     * @param string $command
+     * @return ConsoleTask
+     */
+    public static function console($command)
+    {
+        return new ConsoleTask($command);
     }
 
 }
