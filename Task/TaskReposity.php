@@ -11,11 +11,13 @@
 
 namespace Anonym\Components\Cron\Task;
 
+use Anonym\Components\Cron\Schedule\Schedule;
+
 /**
  * Class TaskReposity
  * @package Anonym\Components\Cron\Task
  */
-class TaskReposity
+class TaskReposity extends Schedule
 {
     /**
      * the command for job
