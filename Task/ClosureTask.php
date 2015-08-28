@@ -10,7 +10,7 @@
 
 
 namespace Anonym\Components\Cron\Task;
-
+use Closure;
 
 class ClosureTask extends TaskReposity
 {
