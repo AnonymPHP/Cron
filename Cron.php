@@ -58,7 +58,15 @@ class Cron
 
     }
 
+    /**
+     * Get all of the events on the schedule that are due.
+     *
+     * @param array $events
+     * @return array
+     */
     private function dueEvents(array $events){
-
+        return array_filter($events, function ($event){
+            return $event->isDue();
+        });
     }
 }
