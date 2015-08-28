@@ -22,7 +22,7 @@ class PhpFileTask extends PhpTask
      * register the command
      *
      * @param string $command
-     * @return Task
+     * @return $this
      */
     public function setCommand($command)
     {
