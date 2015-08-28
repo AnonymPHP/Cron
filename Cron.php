@@ -46,6 +46,4 @@ class Cron
     {
         return ($response !== null & $response instanceof TaskReposity) ? true:false;
     }
-
-
 }
