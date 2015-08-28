@@ -67,7 +67,7 @@ class Cron
      * @param array $events
      * @return array
      */
-    private function dueEvents(array $events){
+    public function dueEvents(array $events){
         return array_filter($events, function ($event){
             return $event->isDue();
         });
