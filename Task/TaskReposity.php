@@ -134,9 +134,7 @@ class TaskReposity extends Schedule
            $this->runClosureTask();
         }else{
             $this->runExecTask();
-
         }
-
     }
 
     /**
