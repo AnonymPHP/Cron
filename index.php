@@ -10,7 +10,9 @@
 
 include 'vendor/autoload.php';
 
-$task = \Anonym\Components\Cron\Task\Task::call(function(){
-    echo 'hello world';
-});
+$cron = new \Anonym\Components\Cron\Cron();
+$cron->call(function(){
+    \Anonym\Components\Cron\Task\Task::call(function(){
 
+    }) ;
+});

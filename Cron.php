@@ -26,7 +26,7 @@ class Cron
      *
      * @param Closure $command
      */
-    public function call(Closure $command)
+    public function event(Closure $command)
     {
         $response = $command();
         if($this->resolveCommandResponse($response))
