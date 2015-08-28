@@ -11,11 +11,8 @@
 
 namespace Anonym\Components\Cron;
 
-/**
- * Class Cron
- * @package Anonym\Components\Cron
- */
-class Cron
+
+class EventReposity
 {
 
 }
