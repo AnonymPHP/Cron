@@ -10,11 +10,12 @@
 
 
 namespace Anonym\Components\Cron;
+use Anonym\Components\Cron\Exception\CronInstanceException;
 use Anonym\Components\Cron\Manager\CrontabManager;
 use Anonym\Components\Cron\Manager\CronEntry;
+use Anonym\Components\Cron\Task\TaskReposity;
 use Anonym\Components\Cron\Task\ClosureTask;
 use Anonym\Components\Cron\Task\ExecTask;
-use Anonym\Components\Cron\Task\TaskReposity;
 use Closure;
 /**
  * Class BasicCron
@@ -95,6 +96,7 @@ class BasicCron
      * resolve the response from add event method
      *
      * @param mixed $response
+     * @throws CronInstanceException
      */
     private function resolveEventResponse($response)
     {
@@ -107,7 +109,9 @@ class BasicCron
         {
             EventReposity::add($response);
         }else{
-            throw new CronInstanceException();
+            throw new CronInstanceException(sprintf('Event Response must be an instance of %s and cant be an instance of %s',
+                TaskReposity::class,
+                ClosureTask::class));
         }
 
     }
