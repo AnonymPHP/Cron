@@ -39,6 +39,7 @@ class BasicCron
      * @var CronEnty
      */
     private $job;
+
     /**
      *
      * create a new instance and register cron tab manager
@@ -46,7 +47,7 @@ class BasicCron
     public function __construct()
     {
         $this->setManager(new CrontabManager());
-        $this->setJob( new CronEntry());
+        $this->setJob(new CronEntry());
     }
 
     /**
@@ -139,11 +140,9 @@ class BasicCron
         $job = $this->getJob();
         $manager = $this->getManager();
 
-        foreach($events as $event)
-        {
-            if($event instanceof TaskReposity)
-            {
-               $time = $event->getPattern();
+        foreach ($events as $event) {
+            if ($event instanceof TaskReposity) {
+                $time = $event->getPattern();
 
             }
         }
