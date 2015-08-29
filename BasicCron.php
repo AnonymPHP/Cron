@@ -10,6 +10,7 @@
 
 
 namespace Anonym\Components\Cron;
+
 use Anonym\Components\Cron\Exception\CronInstanceException;
 use Anonym\Components\Cron\Manager\CrontabManager;
 use Anonym\Components\Cron\Manager\CronEntry;
@@ -17,6 +18,7 @@ use Anonym\Components\Cron\Task\TaskReposity;
 use Anonym\Components\Cron\Task\ClosureTask;
 use Anonym\Components\Cron\Task\ExecTask;
 use Closure;
+
 /**
  * Class BasicCron
  * @package Anonym\Components\Cron
@@ -68,7 +70,6 @@ class BasicCron
     }
 
 
-
     /**
      * @return CrontabManager
      */
@@ -85,10 +86,10 @@ class BasicCron
      */
     public function event(Closure $event)
     {
-        if(null !== $response = $event())
-        {
+        if (null !== $response = $event()) {
             $this->resolveEventResponse($response);
         }
+
         return $this;
     }
 
@@ -100,21 +101,24 @@ class BasicCron
      */
     private function resolveEventResponse($response)
     {
-        if(is_string($response))
-        {
+        if (is_string($response)) {
             $response = new ExecTask($response);
         }
 
-        if($response instanceof TaskReposity && !$response instanceof ClosureTask)
-        {
+        if ($response instanceof TaskReposity && !$response instanceof ClosureTask) {
             EventReposity::add($response);
-        }else{
-            throw new CronInstanceException(sprintf('Event Response must be an instance of %s and cant be an instance of %s',
-                TaskReposity::class,
-                ClosureTask::class));
+        } else {
+            throw new CronInstanceException(
+                sprintf(
+                    'Event Response must be an instance of %s and cant be an instance of %s',
+                    TaskReposity::class,
+                    ClosureTask::class
+                )
+            );
         }
 
     }
+
     /**
      * @param CrontabManager $manager
      * @return BasicCron
