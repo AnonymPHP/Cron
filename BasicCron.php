@@ -25,7 +25,7 @@ class BasicCron
 
     public function __construct()
     {
-
+        $this->setManager(new CrontabManager());
     }
 
     /**
