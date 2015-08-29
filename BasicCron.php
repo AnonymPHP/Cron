@@ -11,6 +11,7 @@
 
 namespace Anonym\Components\Cron;
 use Anonym\Components\Cron\Manager\CrontabManager;
+use Anonym\Components\Cron\Manager\CronEntry;
 /**
  * Class BasicCron
  * @package Anonym\Components\Cron
@@ -39,6 +40,7 @@ class BasicCron
     public function __construct()
     {
         $this->setManager(new CrontabManager());
+        $this->setJob($this->getManager()->newJob());
 
     }
 
