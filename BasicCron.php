@@ -11,7 +11,10 @@
 
 namespace Anonym\Components\Cron;
 
-
+/**
+ * Class BasicCron
+ * @package Anonym\Components\Cron
+ */
 class BasicCron
 {
 
