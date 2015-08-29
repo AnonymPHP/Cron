@@ -12,6 +12,9 @@
 namespace Anonym\Components\Cron;
 use Anonym\Components\Cron\Manager\CrontabManager;
 use Anonym\Components\Cron\Manager\CronEntry;
+use Anonym\Components\Cron\Task\ClosureTask;
+use Anonym\Components\Cron\Task\ExecTask;
+use Anonym\Components\Cron\Task\TaskReposity;
 use Closure;
 /**
  * Class BasicCron
@@ -83,11 +86,29 @@ class BasicCron
     {
         if(null !== $response = $event())
         {
-            $this->resolveEventResponse();
+            $this->resolveEventResponse($response);
         }
         return $this;
     }
 
+    /**
+     * resolve the response from add event method
+     *
+     * @param mixed $response
+     */
+    private function resolveEventResponse($response)
+    {
+        if(is_string($response))
+        {
+            $response = new ExecTask($response);
+        }
+
+        if($response instanceof TaskReposity && !$response instanceof ClosureTask)
+        {
+            EventReposity::add($response);
+        }
+
+    }
     /**
      * @param CrontabManager $manager
      * @return BasicCron
