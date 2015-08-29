@@ -67,7 +67,7 @@ class TaskReposity extends Schedule
      *
      * @return string
      */
-    private function buildCommand()
+    public function buildCommand()
     {
         $command = $this->getCommand();
         $output = $this->output !== null ? $this->output : $this->getDefaultOutput();

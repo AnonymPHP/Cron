@@ -141,7 +141,7 @@ class BasicCron
         {
             if ($event instanceof TaskReposity) {
 
-                $command = $event->getCommand();
+                $command = $event->buildCommand();
                 $time = $event->getPattern();
 
                 $job = $this->getJob()->on($time)->doJob($command);
