@@ -150,9 +150,10 @@ class BasicCron
                 );
 
                 $job->setCommand($event->buildCommand());
-
                 $manager->addJob($job);
             }
         }
+
+        $manager->write();
     }
 }
