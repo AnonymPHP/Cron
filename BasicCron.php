@@ -141,6 +141,7 @@ class BasicCron
         $manager = $this->getManager();
 
         foreach ($events as $event) {
+
             if ($event instanceof TaskReposity) {
                 $time = $event->getPattern();
                 list($min, $hour, $dayOfMonth, $month, $dayOfWeek) = explode(' ', $time);
