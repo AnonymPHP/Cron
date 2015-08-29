@@ -10,7 +10,7 @@
 
 
 namespace Anonym\Components\Cron;
-
+use Anonym\Components\Cron\Manager\CrontabManager;
 /**
  * Class BasicCron
  * @package Anonym\Components\Cron
