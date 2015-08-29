@@ -81,9 +81,10 @@ class BasicCron
      */
     public function event(Closure $event)
     {
-        $response = $event();
-
-
+        if(null !== $response = $event())
+        {
+           EventReposity::add($response);
+        }
         return $this;
     }
     /**
