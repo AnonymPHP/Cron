@@ -19,11 +19,18 @@ class BasicCron
 {
 
     /**
+     * the instance of cron manager
+     *
      * @var CrontabManager
      */
     private $manager;
 
-
+    /**
+     * the instance of job
+     *
+     * @var CronEntry
+     */
+    private $job;
 
     /**
      *
