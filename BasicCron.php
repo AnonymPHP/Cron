@@ -23,4 +23,8 @@ class BasicCron
      */
     private $manager;
 
+    public function __construct()
+    {
+
+    }
 }
