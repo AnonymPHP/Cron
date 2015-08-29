@@ -23,6 +23,12 @@ class BasicCron
      */
     private $manager;
 
+
+
+    /**
+     *
+     * create a new instance and register cron tab manager
+     */
     public function __construct()
     {
         $this->setManager(new CrontabManager());
