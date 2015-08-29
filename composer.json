@@ -14,7 +14,8 @@
     "symfony/process": "~2.4",
     "anonym-php/anonym-console": "~1.2@dev",
     "mtdowling/cron-expression": "~1.0",
-    "nesbot/carbon": "~1.19"
+    "nesbot/carbon": "~1.19",
+    "yzalis/crontab": "~1.0@dev"
   },
   "authors": [
     {
