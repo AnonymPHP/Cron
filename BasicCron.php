@@ -18,4 +18,9 @@ namespace Anonym\Components\Cron;
 class BasicCron
 {
 
+    /**
+     * @var CrontabManager
+     */
+    private $manager;
+
 }
