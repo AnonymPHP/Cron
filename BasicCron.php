@@ -46,7 +46,7 @@ class BasicCron
     public function __construct()
     {
         $this->setManager(new CrontabManager());
-
+        $this->setJob( new CronEntry());
     }
 
     /**
@@ -136,5 +136,16 @@ class BasicCron
     {
         $events = EventReposity::getEvents();
 
+        $job = $this->getJob();
+        $manager = $this->getManager();
+
+        foreach($events as $event)
+        {
+            if($event instanceof TaskReposity)
+            {
+               $time = $event->getPattern();
+
+            }
+        }
     }
 }
