@@ -41,7 +41,6 @@ class BasicCron
     {
         $this->setManager(new CrontabManager());
         $this->setJob($this->getManager()->newJob());
-
     }
 
     /**
@@ -73,6 +72,10 @@ class BasicCron
         return $this->manager;
     }
 
+    public function event(Closure $event)
+    {
+
+    }
     /**
      * @param CrontabManager $manager
      * @return BasicCron
