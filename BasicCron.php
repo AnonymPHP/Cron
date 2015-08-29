@@ -27,4 +27,25 @@ class BasicCron
     {
 
     }
+
+    /**
+     * @return CrontabManager
+     */
+    public function getManager()
+    {
+        return $this->manager;
+    }
+
+    /**
+     * @param CrontabManager $manager
+     * @return BasicCron
+     */
+    public function setManager(CrontabManager $manager)
+    {
+        $this->manager = $manager;
+
+        return $this;
+    }
+
+
 }
