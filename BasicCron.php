@@ -33,12 +33,6 @@ class BasicCron
      */
     private $manager;
 
-    /**
-     * the instance of job
-     *
-     * @var CronEntry
-     */
-    private $job;
 
     /**
      *
@@ -47,7 +41,6 @@ class BasicCron
     public function __construct()
     {
         $this->setManager(new CrontabManager());
-        $this->setJob($this->getManager()->newJob());
     }
 
     /**
@@ -144,7 +137,7 @@ class BasicCron
                 $command = $event->buildCommand();
                 $time = $event->getPattern();
 
-                $job = $this->getJob()->on($time);
+                $job = $this->getJob()->on($time)->d
                 $this->getManager()->add($job);
             }
         }
