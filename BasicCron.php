@@ -83,10 +83,11 @@ class BasicCron
     {
         if(null !== $response = $event())
         {
-           EventReposity::add($response);
+            $this->resolveEventResponse();
         }
         return $this;
     }
+
     /**
      * @param CrontabManager $manager
      * @return BasicCron
