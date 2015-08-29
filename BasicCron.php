@@ -145,6 +145,7 @@ class BasicCron
                $manager->add($add);
             }
         }
-        #$manager->save();
+
+        $manager->save();
     }
 }
