@@ -144,6 +144,7 @@ class BasicCron
             if ($event instanceof TaskReposity) {
                 $time = $event->getPattern();
                 list($min, $hour, $dayOfMonth, $month, $dayOfWeek) = explode(' ', $time);
+                $dayOfWeek = $dayOfWeek === '*' ? 7 : $dayOfWeek;
 
                 $job->setMinute($min)->setHour($hour)->setDayOfMonth($dayOfMonth)->setMonth($month)->setDayOfWeek(
                     $dayOfWeek
