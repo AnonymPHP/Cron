@@ -10,9 +10,9 @@
 
 
 namespace Anonym\Components\Cron\Exception;
+use Exception;
 
-
-class CronInstanceException
+class CronInstanceException extends Exception
 {
 
 }
