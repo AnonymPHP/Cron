@@ -74,6 +74,16 @@ class TaskReposity extends Schedule
 
         return $command.' >'.$output.' 2>&1';
     }
+
+    /**
+     * build command with time expression and command line
+     *
+     * @return string
+     */
+    public function buildCommandWithExpression()
+    {
+        return sprintf('%s %s', $this->getPattern(), $this->buildCommand());
+    }
     /**
      * @return string
      */
