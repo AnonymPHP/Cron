@@ -10,3 +10,11 @@
 
 include 'vendor/autoload.php';
 
+
+$basic = new \Anonym\Components\Cron\BasicCron();
+
+$basic->event(function(){
+   return \Anonym\Components\Cron\Task\Task::exec('echo foo')->daily();
+});
+
+$basic->run();
