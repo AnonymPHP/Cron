@@ -348,6 +348,8 @@ class CrontabManager {
         $out = $this->_exec($this->_command() . ' ' .
                 $this->_tmpfile . ' 2>&1', $ret);
         $this->_setTempFile();
+
+
         if ($ret != 0) {
             throw new \UnexpectedValueException(
             $out . "\n" . $this->cronContent, $ret

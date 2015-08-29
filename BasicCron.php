@@ -130,17 +130,21 @@ class BasicCron
     {
         $events = EventReposity::getEvents();
         $manager = $this->getManager();
+        $job = $manager->newJob();
 
         foreach($events as $event)
         {
             if ($event instanceof TaskReposity) {
 
-                $command = $event->buildCommandWithExpression();
+                $command = $event->buildCommand();
+                $time =  $event->getPattern();
+                $job->on($time)->doJob($command);
+                $render = $job->render();
 
-                $job = $manager->newJob($command);
-                $manager->add($job);
+                $add = $manager->newJob($render);
+               $manager->add($add);
             }
         }
-        $manager->save();
+        #$manager->save();
     }
 }
