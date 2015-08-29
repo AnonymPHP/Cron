@@ -39,7 +39,29 @@ class BasicCron
     public function __construct()
     {
         $this->setManager(new CrontabManager());
+
     }
+
+    /**
+     * @return CronEntry
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param CronEntry $job
+     * @return BasicCron
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+
+        return $this;
+    }
+
+
 
     /**
      * @return CrontabManager
