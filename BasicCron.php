@@ -12,6 +12,7 @@
 namespace Anonym\Components\Cron;
 use Anonym\Components\Cron\Manager\CrontabManager;
 use Anonym\Components\Cron\Manager\CronEntry;
+use Closure;
 /**
  * Class BasicCron
  * @package Anonym\Components\Cron
@@ -72,9 +73,18 @@ class BasicCron
         return $this->manager;
     }
 
+    /**
+     * add a event
+     *
+     * @param Closure $event
+     * @return $this
+     */
     public function event(Closure $event)
     {
+        $response = $event();
 
+
+        return $this;
     }
     /**
      * @param CrontabManager $manager
