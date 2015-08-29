@@ -137,11 +137,11 @@ class BasicCron
 
                 $command = $event->buildCommandWithExpression();
 
-                $job = $manager->newJob()
-                $this->getManager()->add($job);
+                $job = $manager->newJob($command);
+                $manager->add($job);
             }
         }
 
-        $this->getManager()->save();
+        $manager->save();
     }
 }
