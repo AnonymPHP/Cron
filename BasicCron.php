@@ -129,5 +129,26 @@ class BasicCron
         return $this;
     }
 
+    /**
+     * run events
+     *
+     */
+    public function run()
+    {
+        $events = EventReposity::getEvents();
 
+        foreach($events as $event)
+        {
+            if ($event instanceof TaskReposity) {
+
+                $command = $event->getCommand();
+                $time = $event->getPattern();
+
+                $job = $this->getJob()->on($time)->doJob($command);
+                $this->getManager()->add($job);
+            }
+        }
+
+        $this->getManager()->save();
+    }
 }
