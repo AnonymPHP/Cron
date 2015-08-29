@@ -12,8 +12,8 @@
 namespace Anonym\Components\Cron;
 
 use Anonym\Components\Cron\Exception\CronInstanceException;
-use Anonym\Components\Cron\Manager\CrontabManager;
-use Anonym\Components\Cron\Manager\CronEntry;
+use Crontab\Crontab as CrontabManager;
+use Crontab\Job as CronEntry;
 use Anonym\Components\Cron\Task\TaskReposity;
 use Anonym\Components\Cron\Task\ClosureTask;
 use Anonym\Components\Cron\Task\ExecTask;
@@ -33,7 +33,12 @@ class BasicCron
      */
     private $manager;
 
-
+    /**
+     * the instance of job class
+     *
+     * @var CronEnty
+     */
+    private $job;
     /**
      *
      * create a new instance and register cron tab manager
@@ -41,6 +46,7 @@ class BasicCron
     public function __construct()
     {
         $this->setManager(new CrontabManager());
+
     }
 
     /**
