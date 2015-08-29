@@ -116,7 +116,6 @@ class BasicCron
                 )
             );
         }
-
     }
 
     /**
