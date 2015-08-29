@@ -106,6 +106,8 @@ class BasicCron
         if($response instanceof TaskReposity && !$response instanceof ClosureTask)
         {
             EventReposity::add($response);
+        }else{
+            throw new CronInstanceException();
         }
 
     }
