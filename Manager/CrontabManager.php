@@ -324,6 +324,7 @@ class CrontabManager {
      */
     public function save($includeOldJobs = true) {
         $this->cronContent = '';
+
         if ($includeOldJobs) {
             try {
                 $this->cronContent = $this->listJobs();
@@ -333,7 +334,6 @@ class CrontabManager {
         }
 
         $this->cronContent = $this->_prepareContents($this->cronContent);
-
         $this->_replaceCronContents();
     }
 

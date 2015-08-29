@@ -144,7 +144,7 @@ class BasicCron
                 $command = $event->buildCommand();
                 $time = $event->getPattern();
 
-                $job = $this->getJob()->on($time)->doJob($command);
+                $job = $this->getJob()->on($time);
                 $this->getManager()->add($job);
             }
         }
