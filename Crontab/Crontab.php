@@ -69,7 +69,7 @@ class Crontab
     public function render()
     {
         $path = $this->resolvePathVariable();
-        $content =  "PATH=$path \n MAILTO=serif.saglam119@outlook.com \n". implode(PHP_EOL, $this->getJobs());
+        $content =  "PATH=$path \n". implode(PHP_EOL, $this->getJobs());
         return $content;
     }
 

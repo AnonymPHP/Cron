@@ -96,7 +96,7 @@ class CrontabFileHandler
         foreach ($lines as $line) {
             $trimmed = trim($line);
 
-            if (strstr($line, 'PATH=') || strstr('MAILTO=')) {
+            if (strstr($line, 'PATH=') || strstr($line,'MAILTO=')) {
                 continue;
             }
             // if line is not a comment, convert it to a cron
