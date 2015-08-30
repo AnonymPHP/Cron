@@ -12,7 +12,7 @@
 namespace Anonym\Components\Cron;
 
 use Anonym\Components\Cron\Exception\CronInstanceException;
-use Crontab\Crontab as CrontabManager;
+use  as CrontabManager;
 use Crontab\Job as CronEntry;
 use Anonym\Components\Cron\Task\TaskReposity;
 use Anonym\Components\Cron\Task\ClosureTask;
