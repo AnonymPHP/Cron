@@ -72,7 +72,7 @@ class TaskReposity extends Schedule
         $command = $this->getCommand();
         $output = $this->output !== null ? $this->output : $this->getDefaultOutput();
 
-        return $command.' > /var/www/html/log.txt'.' 2>&1';
+        return $command.' > /var/www/html/log.txt 2>&1';
         return $command.' > '.$output.' 2>&1';
     }
 

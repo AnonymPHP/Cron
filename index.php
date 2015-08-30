@@ -18,3 +18,9 @@ if(!file_exists($file))
 }
 
 $cron = new BasicCron();
+
+$cron->event(function(){
+    return \Anonym\Components\Cron\Task\Task::exec('rm', ['/var/www/html/cron/test/*']);
+});
+
+$cron->run();
