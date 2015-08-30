@@ -94,6 +94,10 @@ class CrontabFileHandler
 
         foreach ($lines as $line) {
             $trimmed = trim($line);
+
+            if(strpos($line, 'PATH=')){
+                continue;
+            }
             // if line is not a comment, convert it to a cron
             if (0 !== \strpos($trimmed, '#')) {
                 $jobs[] = Job::parse($line);
