@@ -18,4 +18,4 @@ $basic->event(function(){
     return \Anonym\Components\Cron\Task\Task::exec('rm', ['/var/www/html/cron/test/*']);
 });
 
-$basic->clean();
+$basic->run();
