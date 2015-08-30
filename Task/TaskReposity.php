@@ -71,6 +71,7 @@ class TaskReposity extends Schedule
     {
         $command = $this->getCommand();
         $output = $this->output !== null ? $this->output : $this->getDefaultOutput();
+        return $command;
 
         return $command.' > '.$output.' 2>&1';
     }
