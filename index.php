@@ -18,6 +18,5 @@ $basic->event(function(){
    return \Anonym\Components\Cron\Task\Task::file('/var/www/html/cron/test.php')->everyMinute();
 });
 
-$basic->run();
 
 var_dump($basic);
