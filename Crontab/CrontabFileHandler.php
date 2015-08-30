@@ -95,7 +95,7 @@ class CrontabFileHandler
         foreach ($lines as $line) {
             $trimmed = trim($line);
 
-            if(strpos($line, 'PATH=')){
+            if (strstr($line, 'PATH=')) {
                 continue;
             }
             // if line is not a comment, convert it to a cron
