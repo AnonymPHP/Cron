@@ -18,6 +18,7 @@ use Anonym\Components\Cron\Task\TaskReposity;
 use Anonym\Components\Cron\Task\ClosureTask;
 use Anonym\Components\Cron\Task\ExecTask;
 use Closure;
+use Symfony\Component\Process\Process;
 
 /**
  * Class BasicCron
@@ -130,6 +131,18 @@ class BasicCron
     }
 
     /**
+     * clean the saved crontabs
+     *
+     * @return $this
+     */
+    public function clean()
+    {
+        $process = new Process($this->getManager()->getCrontabExecutable(). ' -r');
+        $process->run();
+
+        return $this;
+    }
+    /**
      * run events
      *
      */
@@ -145,7 +158,6 @@ class BasicCron
             if ($event instanceof TaskReposity) {
                 $time = $event->getPattern();
                 list($min, $hour, $dayOfMonth, $month, $dayOfWeek) = explode(' ', $time);
-                $dayOfWeek = $dayOfWeek === '*' ? 7 : $dayOfWeek;
 
                 $job->setMinute($min)->setHour($hour)->setDayOfMonth($dayOfMonth)->setMonth($month)->setDayOfWeek(
                     $dayOfWeek
