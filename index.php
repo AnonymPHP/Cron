@@ -9,14 +9,3 @@
  */
 
 include 'vendor/autoload.php';
-use Anonym\Components\Cron\BasicCron;
-$file = '/var/www/html/log.txt';
-
-
-$cron = new BasicCron();
-
-$cron->event(function(){
-    return \Anonym\Components\Cron\Task\Task::exec('rm', ['/var/www/html/cron/test/*']);
-});
-
-$cron->run();
