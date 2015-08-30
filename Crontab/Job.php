@@ -34,6 +34,7 @@ class Job extends BaseJob
      */
     static function parse($jobLine)
     {
+
         // split the line
         $parts = preg_split('@ @', $jobLine, NULL, PREG_SPLIT_NO_EMPTY);
 
