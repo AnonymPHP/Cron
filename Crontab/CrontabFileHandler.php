@@ -70,6 +70,7 @@ class CrontabFileHandler
         }
 
         $file = file_get_contents($filename);
+
         foreach ($this->parseString($file) as $job) {
             $crontab->addJob($job);
         }
