@@ -11,14 +11,15 @@
 
 namespace Anonym\Components\Cron;
 
-use Anonym\Components\Cron\Exception\CronInstanceException;
 use Anonym\Components\Cron\Crontab\Crontab as CrontabManager;
+use Anonym\Components\Cron\Exception\CronInstanceException;
 use Anonym\Components\Cron\Crontab\Job as CronEntry;
 use Anonym\Components\Cron\Task\TaskReposity;
 use Anonym\Components\Cron\Task\ClosureTask;
 use Anonym\Components\Cron\Task\ExecTask;
-use Closure;
 use Symfony\Component\Process\Process;
+
+use Closure;
 
 /**
  * Class BasicCron
