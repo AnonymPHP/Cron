@@ -137,11 +137,12 @@ class BasicCron
      */
     public function clean()
     {
-        $process = new Process($this->getManager()->getCrontabExecutable(). ' -r');
+        $process = new Process($this->getManager()->getCrontabExecutable().' -r');
         $process->run();
 
         return $this;
     }
+
     /**
      * run events
      *
@@ -153,21 +154,24 @@ class BasicCron
         $job = $this->getJob();
         $manager = $this->getManager();
 
-        foreach ($events as $event) {
+        if (count($events)) {
+            foreach ($events as $event) {
 
-            if ($event instanceof TaskReposity) {
-                $time = $event->getPattern();
-                list($min, $hour, $dayOfMonth, $month, $dayOfWeek) = explode(' ', $time);
+                if ($event instanceof TaskReposity) {
+                    $time = $event->getPattern();
+                    list($min, $hour, $dayOfMonth, $month, $dayOfWeek) = explode(' ', $time);
 
-                $job->setMinute($min)->setHour($hour)->setDayOfMonth($dayOfMonth)->setMonth($month)->setDayOfWeek(
-                    $dayOfWeek
-                );
+                    $job->setMinute($min)->setHour($hour)->setDayOfMonth($dayOfMonth)->setMonth($month)->setDayOfWeek(
+                        $dayOfWeek
+                    );
 
-                $job->setCommand($event->buildCommand());
-                $manager->addJob($job);
+                    $job->setCommand($event->buildCommand());
+                    $manager->addJob($job);
+                }
             }
+
+            $manager->write();
         }
 
-        $manager->write();
     }
 }
