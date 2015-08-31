@@ -65,7 +65,6 @@ class Cron
      * @return $this
      */
     public function removeJob($job = ''){
-
         $this->getBasic()->removeJob($job);
         return $this;
     }
