@@ -213,9 +213,17 @@ class Crontab
     }
 
 
+    /**
+     * search job in jobs
+     *
+     * @param string $job
+     * @return mixed
+     */
     public function jobExists($job = '')
     {
+        $jobs = $this->getCrontabFileHandler()->listJobs($this);
 
+        return array_search($job, $jobs);
     }
     /**
      * Remove all job in the current crontab
