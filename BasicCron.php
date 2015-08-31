@@ -107,7 +107,7 @@ class BasicCron
         }
 
         if ($response instanceof TaskReposity && !$response instanceof ClosureTask) {
-            EventReposity::add($response);
+            EventReposity::addBasic($response);
         } else {
             throw new CronInstanceException(
                 sprintf(
@@ -149,7 +149,7 @@ class BasicCron
      */
     public function run()
     {
-        $events = EventReposity::getEvents();
+        $events = EventReposity::getBasicEvents();
 
         $job = $this->getJob();
         $manager = $this->getManager();
