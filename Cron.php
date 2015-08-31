@@ -10,8 +10,11 @@
 
 
 namespace Anonym\Components\Cron;
+
+use Anonym\Components\Cron\Task\Task;
 use Anonym\Components\Cron\Task\TaskReposity;
 use Closure;
+
 /**
  * Class Cron
  * @package Anonym\Components\Cron
@@ -25,6 +28,47 @@ class Cron
      * @var array
      */
     protected $cache;
+
+    /**
+     * the instance of BasicCron Class
+     *
+     * @var BasicCron
+     */
+    protected $basic;
+
+    public function __constuct()
+    {
+        $this->setBasic(new BasicCron());
+        $job = Task::console('schedule:run');
+
+        if (!$this->getBasic()->jobExists($job->buildCommandWithExpression())) {
+            $this->getBasic()->event(
+                function () use ($job) {
+                    return $job;
+                }
+            );
+        }
+    }
+
+    /**
+     * @return BasicCron
+     */
+    public function getBasic()
+    {
+        return $this->basic;
+    }
+
+    /**
+     * @param BasicCron $basic
+     * @return Cron
+     */
+    public function setBasic(BasicCron $basic)
+    {
+        $this->basic = $basic;
+        return $this;
+    }
+
+
     /**
      * add a new event to reposity
      *
@@ -36,8 +80,7 @@ class Cron
     {
         $response = $command();
 
-        if($this->resolveCommandResponse($response))
-        {
+        if ($this->resolveCommandResponse($response)) {
             EventReposity::add($response);
         }
     }
@@ -50,7 +93,7 @@ class Cron
      */
     private function resolveCommandResponse($response)
     {
-        return ($response !== null & $response instanceof TaskReposity) ? true:false;
+        return ($response !== null & $response instanceof TaskReposity) ? true : false;
     }
 
     /**
@@ -61,8 +104,7 @@ class Cron
     {
         $events = $this->dueEvents(EventReposity::getEvents());
 
-        foreach($events as $event)
-        {
+        foreach ($events as $event) {
             $event->execute();
         }
     }
@@ -73,10 +115,14 @@ class Cron
      * @param array $events
      * @return array
      */
-    public function dueEvents(array $events){
-        return array_filter($events, function ($event){
-            return $event->isDue();
-        });
+    public function dueEvents(array $events)
+    {
+        return array_filter(
+            $events,
+            function ($event) {
+                return $event->isDue();
+            }
+        );
     }
 
     /**
@@ -84,7 +130,8 @@ class Cron
      *
      * @return array
      */
-    public function getEvents(){
+    public function getEvents()
+    {
         return null !== $this->getCache() ? $this->getCache() : EventReposity::getEvents();
     }
 
