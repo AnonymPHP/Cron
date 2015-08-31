@@ -72,4 +72,13 @@ class Cron
             return $event->isDue();
         });
     }
+
+    /**
+     * get the events
+     *
+     * @return array
+     */
+    public function getEvents(){
+        return EventReposity::getEvents();
+    }
 }
