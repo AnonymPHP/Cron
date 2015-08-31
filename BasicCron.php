@@ -174,6 +174,15 @@ class BasicCron
         }
     }
 
+    public function removeJob($job = '')
+    {
+        $refrector = new Job();
+        $job = $refrector->parse($job);
+
+         $this->getManager()->removeJob($job);
+        return $this;
+    }
+
     /**
      * search the job in jobs
      *

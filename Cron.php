@@ -62,13 +62,12 @@ class Cron
      *  remove a job on crontab
      *
      * @param string $job
+     * @return $this
      */
     public function removeJob($job = ''){
 
-        $refrector = new Job();
-        $job = $refrector->parse($job);
-
-        $this->getBasic()->getManager()->removeJob($job);
+        $this->getBasic()->removeJob($job);
+        return $this;
     }
 
     /**
