@@ -26,6 +26,13 @@ class EventReposity
     private static $events = [];
 
     /**
+     * the reposity of events
+     *
+     * @var array
+     */
+    private static $basicEvents = [];
+
+    /**
      * add a new event to reposity
      *
      * @param string|\Closure $event
@@ -33,6 +40,33 @@ class EventReposity
     public static function add($event)
     {
         static::$events[] = $event;
+    }
+
+
+    /**
+     * add a new event to reposity
+     *
+     * @param string|\Closure $event
+     */
+    public static function addBasic($event)
+    {
+        static::$basicEvents[] = $event;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getBasicEvents()
+    {
+        return self::$basicEvents;
+    }
+
+    /**
+     * @param array $basicEvents
+     */
+    public static function setBasicEvents($basicEvents)
+    {
+        self::$basicEvents = $basicEvents;
     }
 
     /**
