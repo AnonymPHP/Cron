@@ -25,11 +25,15 @@ class PhpTask extends TaskReposity
      */
     private function  resolvePhpInstalledPath()
     {
-        if (null !== $path = exec('which php')) {
-            return $path;
-        }
 
-        return '/usr/bin/php';
+        if ((strpos(strtoupper(PHP_OS), 'WIN') === 0)) {
+            return 'php';
+        }else{
+            if (null !== $path = exec('which php')) {
+                return $path;
+            }
+        }
+        return 'php';
     }
 
     /**
