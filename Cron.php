@@ -105,10 +105,4 @@ class Cron
         $this->cache = $cache;
         return $this;
     }
-
-
-    public function existsJob(){
-
-    }
-
 }

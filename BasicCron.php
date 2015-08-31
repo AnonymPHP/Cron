@@ -172,6 +172,16 @@ class BasicCron
 
             $manager->write();
         }
+    }
 
+    /**
+     * search the job in jobs
+     *
+     * @param string $job
+     * @return mixed
+     */
+    public function jobExists($job)
+    {
+        return $this->getManager()->jobExists($job);
     }
 }
