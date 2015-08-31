@@ -212,6 +212,11 @@ class Crontab
         return $this;
     }
 
+
+    public function jobExists($job = '')
+    {
+
+    }
     /**
      * Remove all job in the current crontab
      *

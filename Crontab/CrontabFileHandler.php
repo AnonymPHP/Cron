@@ -32,6 +32,22 @@ class CrontabFileHandler
     protected $output;
 
     /**
+     * list the current jobs
+     *
+     * @param Crontab $crontab
+     * @return array
+     */
+    public function listJobs($crontab){
+
+        $process = new Process($this->crontabCommand($crontab).' -l');
+        $process->run();
+
+        $this->error = $process->getErrorOutput();
+        return $process->getOutput();
+
+    }
+
+    /**
      * Parse an existing crontab
      *
      * @param Crontab $crontab
@@ -40,16 +56,10 @@ class CrontabFileHandler
      */
     public function parseExistingCrontab(Crontab $crontab)
     {
-        // parsing cron file
-        $process = new Process($this->crontabCommand($crontab).' -l');
-        $process->run();
 
-
-        foreach ($this->parseString($process->getOutput()) as $job) {
+        foreach ($this->parseString($this->listJobs($crontab)) as $job) {
             $crontab->addJob($job);
         }
-
-        $this->error = $process->getErrorOutput();
 
         return $this;
     }

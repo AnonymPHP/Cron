@@ -107,4 +107,8 @@ class Cron
     }
 
 
+    public function existsJob(){
+
+    }
+
 }
