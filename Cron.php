@@ -85,7 +85,7 @@ class Cron
      * @return array
      */
     public function getEvents(){
-        return EventReposity::getEvents();
+        return null !== $this->getCache() ? $this->getCache() : EventReposity::getEvents();
     }
 
     /**
