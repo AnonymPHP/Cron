@@ -52,6 +52,8 @@ class Cron
                     return $job;
                 }
             );
+
+            $this->getBasic()->run();
         }
     }
 
