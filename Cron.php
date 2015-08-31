@@ -11,6 +11,7 @@
 
 namespace Anonym\Components\Cron;
 
+use Anonym\Components\Cron\Crontab\Job;
 use Anonym\Components\Cron\Task\Task;
 use Anonym\Components\Cron\Task\TaskReposity;
 use Closure;
@@ -55,6 +56,19 @@ class Cron
 
             $this->getBasic()->run();
         }
+    }
+
+    /**
+     *  remove a job on crontab
+     *
+     * @param string $job
+     */
+    public function removeJob($job = ''){
+
+        $refrector = new Job();
+        $job = $refrector->parse($job);
+
+        $this->getBasic()->getManager()->removeJob($job);
     }
 
     /**
