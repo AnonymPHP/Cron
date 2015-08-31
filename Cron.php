@@ -20,6 +20,12 @@ class Cron
 {
 
     /**
+     * the cache for events
+     *
+     * @var array
+     */
+    protected $cache;
+    /**
      * add a new event to reposity
      *
      * Note: $command must be a closure
@@ -81,4 +87,24 @@ class Cron
     public function getEvents(){
         return EventReposity::getEvents();
     }
+
+    /**
+     * @return array
+     */
+    public function getCache()
+    {
+        return $this->cache;
+    }
+
+    /**
+     * @param array $cache
+     * @return Cron
+     */
+    public function setCache($cache)
+    {
+        $this->cache = $cache;
+        return $this;
+    }
+
+
 }
