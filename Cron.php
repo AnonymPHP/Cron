@@ -37,7 +37,8 @@ class Cron
     protected $basic;
 
     /**
-     * creae a new instance and install the cron job of php anonym schedule:run command
+     * create a new instance and install the cron job of php anonym schedule:run command
+     *
      */
     public function __constuct()
     {
