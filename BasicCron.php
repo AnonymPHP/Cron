@@ -182,6 +182,11 @@ class BasicCron
      */
     public function removeJob($job = '')
     {
+
+        if ($job instanceof TaskReposity) {
+            $job = $job->buildCommandWithExpression();
+        }
+
         $refrector = new CronEntry();
         $job = $refrector->parse($job);
 

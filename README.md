@@ -102,16 +102,16 @@ $cron->event(function(){
 ->thursdays();	        // sadece perşembe günleri yürütür
 ->fridays();	        // sadece cuma günleri yürütür
 ->saturdays();	        // sadece perşembe günleri yürütür
-->when(Closure);	    // girdiğiniz Closure fonksiyondan true döndüğü zaman yürütür
+->when(Closure);	    // girdiğiniz Closure fonksiyondan true döndüğü zaman yürütür // konsol üzerinde çalışır
 
 ```
 
 >Bu verileri arka arkayada çağırabilirsiniz.
 
-->when() ile kontrol yaptırma
+->when() ile kontrol yaptırma(**AnonymConsole**)
 ---------------
 
-`when` methodu ile istediğiniz kontrolu yaptırabilirsiniz
+`when` methodu ile istediğiniz kontrolu yaptırabilirsiniz. **Sadece Anonym Console üzerinde çalışır**
 
 ```php
 
@@ -125,4 +125,28 @@ $cron->event(function(){
 ```
 
 >Kontrolun başarılı olduğunun anlaşılması için `true` değeri dönmelidir.
+
+-----------------------------
+
+İşleri Yürütmek(Cron a eklemek)
+--------------------------
+
+
+```php
+
+$cron->run();
+
+```
+
+
+Bir işi silmek
+----------------
+
+```php
+
+$job = Task::php('/var/www/html/test.php')->daily();
+
+$cron->removeJob($job);
+
+```
 
