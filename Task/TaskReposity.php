@@ -156,7 +156,7 @@ class TaskReposity extends Schedule
      */
     public function getSummaryForDescription()
     {
-        return $this->command instanceof Closure ? 'Closure' : $this->buildCommand();
+        return $this->command instanceof Closure ? 'Closure' : $this->getCommand();
     }
     /**
      * run the closure
