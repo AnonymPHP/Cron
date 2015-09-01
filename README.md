@@ -150,4 +150,11 @@ $cron->removeJob($job);
 
 ```
 
+Tüm işleri temizlemek
+--------------------
 
+```php
+
+$cron->clean();
+
+```
