@@ -21,6 +21,7 @@ class ConsoleTask extends PhpTask
      * register the command
      *
      * @param string $command
+     * @param string $base
      * @return $this
      */
     public function setCommand($command, $base = '')

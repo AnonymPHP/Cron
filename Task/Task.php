@@ -55,11 +55,12 @@ class Task
      * call the a console task
      *
      * @param string $command
+     * @param string $base
      * @return ConsoleTask
      */
-    public static function console($command)
+    public static function console($command, $base = '')
     {
-        return new ConsoleTask($command);
+        return new ConsoleTask($command, $base);
     }
 
 }
