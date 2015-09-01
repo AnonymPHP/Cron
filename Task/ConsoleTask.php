@@ -44,7 +44,7 @@ class ConsoleTask extends PhpTask
         $last = substr($base, -1);
 
         var_dump($last);
-        if($last === '/'){
+        if($last !== '/'){
             return $base.'/';
         }
 
