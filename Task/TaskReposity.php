@@ -114,6 +114,7 @@ class TaskReposity extends Schedule
      */
     public function isDue()
     {
+
         $date = Carbon::now();
 
         if ($this->timezone) {
@@ -121,14 +122,21 @@ class TaskReposity extends Schedule
         }
 
         $response = CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
-        return $response === true && $this->resolveWhen();
+        return $response && $this->resolveWhen();
     }
 
 
+    /**
+     * @return bool
+     */
     private function resolveWhen(){
         $when = $this->when;
 
-        return $when() === true ? true:false;
+        if(null === $when){
+            return true;
+        }
+
+        return $when() === true? true:false;
     }
     /**
      * get the base path
