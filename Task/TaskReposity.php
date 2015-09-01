@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Cron\CronExpression;
 use Symfony\Component\Process\Process;
 use Closure;
+
 /**
  * Class TaskReposity
  * @package Anonym\Components\Cron\Task
@@ -42,6 +43,7 @@ class TaskReposity extends Schedule
      * @var string
      */
     private $output;
+
     /**
      * set the command and create a new instance
      *
@@ -85,6 +87,7 @@ class TaskReposity extends Schedule
     {
         return sprintf('%s %s', $this->getPattern(), $this->buildCommand());
     }
+
     /**
      * @return string
      */
@@ -122,6 +125,7 @@ class TaskReposity extends Schedule
         }
 
         $response = CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
+
         return $response && $this->resolveWhen();
     }
 
@@ -129,15 +133,17 @@ class TaskReposity extends Schedule
     /**
      * @return bool
      */
-    private function resolveWhen(){
+    private function resolveWhen()
+    {
         $when = $this->when;
 
-        if(null === $when){
+        if (null === $when) {
             return true;
         }
 
-        return $when() === true? true:false;
+        return $when() === true ? true : false;
     }
+
     /**
      * get the base path
      *
@@ -145,7 +151,7 @@ class TaskReposity extends Schedule
      */
     private function resolveBasePath()
     {
-        return defined('BASE') ? BASE: __DIR__;
+        return defined('BASE') ? BASE : __DIR__;
     }
 
     /**
@@ -154,10 +160,9 @@ class TaskReposity extends Schedule
      */
     public function execute()
     {
-        if($this->command instanceof Closure)
-        {
-           $this->runClosureTask();
-        }else{
+        if ($this->command instanceof Closure) {
+            $this->runClosureTask();
+        } else {
             $this->runExecTask();
         }
     }
@@ -172,6 +177,7 @@ class TaskReposity extends Schedule
     {
         return $this->command instanceof Closure ? 'Closure' : $this->getCommand();
     }
+
     /**
      * run the closure
      *
@@ -180,6 +186,7 @@ class TaskReposity extends Schedule
     {
         call_user_func($this->command);
     }
+
     /**
      * run the exec task
      */
