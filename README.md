@@ -12,11 +12,11 @@ Cronjob ile ilgili sınıflar `Anonym\Components\Cron` namespace içinde bulunur
 
 ```php
 
-use Anonym\Components\Cron\Cron;
+use Anonym\Components\Cron\BasicCron;
 use Anonym\Components\Cron\Task;
 
 
-$cron = new Cron();
+$cron = new BasicCron();
 
 ```
 
@@ -86,12 +86,12 @@ $cron->event(function(){
 ->everyFiveMinutes();   // her 5 dakikada bir yürütür
 ->everyTenMinutes();    // her 10 dakikada bir yürütür
 ->everyThirtyMinutes();	// her 30 dakikada bir yürütür
-->hourly();	Run the task every hour
-->daily();	Run the task every day at midnight
-->dailyAt('13:00');	Run the task every day at 13:00
-->twiceDaily(1, 13);	Run the task daily at 1:00 & 13:00
-->weekly();	Run the task every week
-->monthly();	Run the task every month
+->hourly();	            // her saat başı yürütür
+->daily();	            // her gün yürütür
+->dailyAt('13:00');	    // her günün girilen saatinde yürütür
+->twiceDaily(1, 13);	// her gün girilen saatlerde yürütür
+->weekly();	            // her haftanın başında yürütür
+->monthly();	        // her ayın başında yürütür
 
 
 ->weekdays();	Limit the task to weekdays
