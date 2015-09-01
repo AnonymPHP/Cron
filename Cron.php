@@ -11,9 +11,8 @@
 
 namespace Anonym\Components\Cron;
 
-use Anonym\Components\Cron\Crontab\Job;
-use Anonym\Components\Cron\Task\Task;
 use Anonym\Components\Cron\Task\TaskReposity;
+use Anonym\Components\Cron\Task\Task;
 use Closure;
 
 /**
