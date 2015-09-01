@@ -10,7 +10,7 @@
 
 
 namespace Anonym\Components\Cron\Schedule;
-
+use Closure;
 /**
  * Class Schedule
  * @package Anonym\Components\Cron\Job
@@ -66,6 +66,25 @@ class Schedule
      * @var string
      */
     private $pattern = '* * * * * *';
+
+    /**
+     * the instance of closure
+     *
+     * @var Closure
+     */
+    protected $when;
+
+    /**
+     * register the when instance
+     *
+     * @param Closure $when
+     * @return $this
+     */
+    public function when(Closure $when)
+    {
+        $this->when = $when;
+        return $this;
+    }
 
     /**
      * @return string
