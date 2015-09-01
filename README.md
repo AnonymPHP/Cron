@@ -1,8 +1,9 @@
 # Cron
 
 
-Bu sınıf cron job ekleme ve silme gibi işler için kullanılır.
+Bu bileşen cron job ekleme ve silme gibi işler için kullanılır.
 
+-------------------------
 
 Sınıfın Çağrımı
 --------------
@@ -18,6 +19,8 @@ use Anonym\Components\Cron\Task;
 $cron = new Cron();
 
 ```
+
+------------------------------
 
 Yeni bir iş eklemek
 -------------------
@@ -38,6 +41,8 @@ $cron->event(function(){
 
 ```
 
+----------------------------
+
 **Php komutu çağırmak**:
 
 ```php
@@ -49,6 +54,8 @@ $cron->event(function(){
 
 ```
 
+----------------------------
+
 İşlerin Ne Zaman Çalışacağını Ayarlamak
 ----------------
 
@@ -56,3 +63,4 @@ Eklediğiniz işler ön tanımlı olarak her dakika çalışacak şekilde ayarl�
 
 `return Task::php('/var/www/html/test.php')` kodundan sonra `daily` gibi methodları çağırabilirsiniz.
 
+**Örnek Olarak:**
