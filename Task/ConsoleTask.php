@@ -29,7 +29,7 @@ class ConsoleTask extends PhpTask
 
         $base = ($base === null) ? BASE : $base;
 
-         parent::setCommand($this->resolveBase($base).'anonym '.$command);
+         parent::setCommand('cd '.$this->resolveBase($base).' && anonym '.$command);
 
         return $this;
     }
