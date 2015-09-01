@@ -48,3 +48,8 @@ $cron->event(function(){
 });
 
 ```
+
+İşlerin Ne Zaman Çalışacağını Ayarlamak
+----------------
+
+
