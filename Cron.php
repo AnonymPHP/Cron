@@ -70,6 +70,15 @@ class Cron
     }
 
     /**
+     * clean the saved crontabs
+     *
+     * @return $this
+     */
+    public function clean(){
+        $this->getBasic()->clean();
+        return $this;
+    }
+    /**
      * @return BasicCron
      */
     public function getBasic()
