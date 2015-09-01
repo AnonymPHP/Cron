@@ -29,7 +29,7 @@ class ConsoleTask extends PhpTask
 
         $base = ($base === null) ? BASE : $base;
 
-         parent::setCommand('cd '.$this->resolveBase($base).' && anonym '.$command);
+        parent::setCommand('cd '.$this->resolveBase($base).' && anonym '.$command);
 
         return $this;
     }
@@ -40,11 +40,12 @@ class ConsoleTask extends PhpTask
      * @param string $base
      * @return string
      */
-    private function resolveBase($base){
+    private function resolveBase($base)
+    {
         $last = substr($base, -1);
 
         var_dump($last);
-        if($last !== '/'){
+        if ($last !== '/') {
             return $base.'/';
         }
 
