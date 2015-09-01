@@ -52,4 +52,7 @@ $cron->event(function(){
 İşlerin Ne Zaman Çalışacağını Ayarlamak
 ----------------
 
+Eklediğiniz işler ön tanımlı olarak her dakika çalışacak şekilde ayarlıdır. Bunu düzenlemek için;
+
+`return Task::php('/var/www/html/test.php')` kodundan sonra `daily` gibi methodları çağırabilirsiniz.
 
