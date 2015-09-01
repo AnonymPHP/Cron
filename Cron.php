@@ -44,7 +44,15 @@ class Cron
     {
 
         $this->setBasic(new BasicCron());
-        $job = Task::console('schedule:run');
+    }
+
+    /**
+     * install the default cron
+     *
+     *
+     * @param TaskReposity $job
+     */
+    public function install(TaskReposity $job){
 
         // install the default schedule
         if (!$this->getBasic()->jobExists($job->buildCommandWithExpression())) {
