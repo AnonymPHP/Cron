@@ -107,3 +107,22 @@ $cron->event(function(){
 ```
 
 >Bu verileri arka arkayada çağırabilirsiniz.
+
+->when() ile kontrol yaptırma
+---------------
+
+`when` methodu ile istediğiniz kontrolu yaptırabilirsiniz
+
+```php
+
+$cron->event(function(){
+
+ return Task::php('/var/www/html/test.php')->daily()->when(function(){
+    return true;
+ });
+});
+
+```
+
+>Kontrolun başarılı olduğunun anlaşılması için `true` değeri dönmelidir.
+
