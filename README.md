@@ -105,3 +105,5 @@ $cron->event(function(){
 ->when(Closure);	    // girdiğiniz Closure fonksiyondan true döndüğü zaman yürütür
 
 ```
+
+>Bu verileri arka arkayada çağırabilirsiniz.
