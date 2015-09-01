@@ -94,14 +94,14 @@ $cron->event(function(){
 ->monthly();	        // her ayın başında yürütür
 
 
-->weekdays();	Limit the task to weekdays
-->sundays();	Limit the task to Sunday
-->mondays();	Limit the task to Monday
-->tuesdays();	Limit the task to Tuesday
-->wednesdays();	Limit the task to Wednesday
-->thursdays();	Limit the task to Thursday
-->fridays();	Limit the task to Friday
-->saturdays();	Limit the task to Saturday
-->when(Closure);	Limit the task based on a truth test
+->weekdays();	        // haftanın her günü yürütür
+->sundays();	        // sadece pazar günleri yürütür
+->mondays();	        // sadece pazartesi günleri yürütür
+->tuesdays();	        // sadece  salı yürütür
+->wednesdays();         // sadece çarşamba günleri yürütür
+->thursdays();	        // sadece perşembe günleri yürütür
+->fridays();	        // sadece cuma günleri yürütür
+->saturdays();	        // sadece perşembe günleri yürütür
+->when(Closure);	    // girdiğiniz Closure fonksiyondan true döndüğü zaman yürütür
 
 ```
