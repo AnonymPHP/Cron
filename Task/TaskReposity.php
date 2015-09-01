@@ -75,6 +75,7 @@ class TaskReposity extends Schedule
         return $command.' > '.$output.' 2>&1';
     }
 
+
     /**
      * build command with time expression and command line
      *
@@ -171,7 +172,7 @@ class TaskReposity extends Schedule
     private function runExecTask()
     {
         chdir($this->resolveBasePath());
-        $process = new Process($this->buildCommand());
+        $process = new Process($this->getCommand());
         $process->run();
     }
 }
