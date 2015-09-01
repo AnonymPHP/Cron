@@ -43,10 +43,11 @@ class ConsoleTask extends PhpTask
     private function resolveBase($base){
         $last = substr($base, -1);
 
+        var_dump($last);
         if($last === '/'){
-            return $last.'/';
+            return $base.'/';
         }
 
-        return $last;
+        return $base;
     }
 }
