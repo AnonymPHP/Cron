@@ -40,8 +40,9 @@ class Cron
      * create a new instance and install the cron job of php anonym schedule:run command
      *
      */
-    public function __constuct()
+    public function __construct()
     {
+
         $this->setBasic(new BasicCron());
         $job = Task::console('schedule:run');
 
