@@ -9,9 +9,3 @@
  */
 
 include 'vendor/autoload.php';
-
-
-var_dump(\Anonym\Components\Cron\Task\Task::console('test', '/var/www/html/Cron/'));
-
-
-echo substr( '/var/www/html/Cron/', -1);
