@@ -184,7 +184,18 @@ class TaskReposity extends Schedule
      */
     private function runClosureTask()
     {
+
+        if($this->before !== null)
+        {
+            $this->resolveBeforeCallbacks();
+        }
+
         call_user_func($this->command);
+
+        if($this->after !== null)
+        {
+            $this->resolveAfterCallbacks();
+        }
     }
 
     /**
@@ -195,5 +206,19 @@ class TaskReposity extends Schedule
         chdir($this->resolveBasePath());
         $process = new Process($this->getCommand());
         $process->run();
+    }
+
+    /**
+     * resolve the befores
+     */
+    private function resolveBeforeCallbacks()
+    {
+
+        foreach($this->before as $callback)
+        {
+            if ($callback instanceof Closure) {
+                $callback();
+            }
+        }
     }
 }
