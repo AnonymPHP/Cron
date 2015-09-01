@@ -209,12 +209,25 @@ class TaskReposity extends Schedule
     }
 
     /**
-     * resolve the befores
+     * resolve the before callbacks
      */
     private function resolveBeforeCallbacks()
     {
 
         foreach($this->before as $callback)
+        {
+            if ($callback instanceof Closure) {
+                $callback();
+            }
+        }
+    }
+
+    /**
+     * resolve the after callbacks
+     */
+    private function resolveAfterCallbacks()
+    {
+        foreach($this->after as $callback)
         {
             if ($callback instanceof Closure) {
                 $callback();
