@@ -1,6 +1,7 @@
 <?php
 
 namespace Anonym\Components\Cron\Crontab;
+use Symfony\Component\Process\Process;
 
 
 /**
@@ -221,7 +222,7 @@ class Crontab
      */
     public function jobExists($job = '')
     {
-        $process = new \Symfony\Component\Process\Process('crontab -l');
+        $process = new Process('crontab -l');
         $process->run();
 
         $output = ($process->getIncrementalOutput());
