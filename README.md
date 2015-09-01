@@ -158,3 +158,21 @@ Tüm işleri temizlemek
 $cron->clean();
 
 ```
+
+Eklentiler
+--------------
+
+Konsol Uygulamasında Komut çağrılmadan önce ve sonra yapılacak işleri ayarlayabilirsiniz.
+
+
+```php
+
+$schedule->event(function(){
+    echo 'hello world';
+})->before(function(){
+
+})->after(function(){
+
+});
+
+```
