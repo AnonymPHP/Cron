@@ -49,7 +49,7 @@ class TaskReposity extends Schedule
      */
     public function __construct($command)
     {
-        $this->setCommand($command);
+        call_user_func_array([$this, 'setCommand'], func_get_args());
     }
 
     /**

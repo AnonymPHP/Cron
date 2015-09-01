@@ -58,7 +58,7 @@ class Task
      * @param string $base
      * @return ConsoleTask
      */
-    public static function console($command, $base = '')
+    public static function console($command, $base = null)
     {
         return new ConsoleTask($command, $base);
     }

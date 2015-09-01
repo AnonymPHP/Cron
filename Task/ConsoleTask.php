@@ -24,13 +24,29 @@ class ConsoleTask extends PhpTask
      * @param string $base
      * @return $this
      */
-    public function setCommand($command, $base = '')
+    public function setCommand($command, $base = null)
     {
 
-        $base = '' !== $base ? $base : BASE;
+        $base = ($base === null) ? BASE : $base;
 
-         parent::setCommand($base.' anonym '.$command);
+         parent::setCommand($this->resolveBase($base).'anonym '.$command);
 
         return $this;
+    }
+
+    /**
+     * resolve the base string
+     *
+     * @param string $base
+     * @return string
+     */
+    private function resolveBase($base){
+        $last = substr($base, -1);
+
+        if($last === '/'){
+            return $last.'/';
+        }
+
+        return $last;
     }
 }
