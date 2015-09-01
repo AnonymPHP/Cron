@@ -221,9 +221,9 @@ class Crontab
      */
     public function jobExists($job = '')
     {
-        $jobs = $this->getCrontabFileHandler()->listJobs($this);
+        exec('crontab -l', $jobs);
 
-        return array_search($job, $jobs);
+        return is_array($jobs) ?  array_search($job, $jobs) : false;
     }
     /**
      * Remove all job in the current crontab
