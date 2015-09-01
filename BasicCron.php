@@ -137,7 +137,7 @@ class BasicCron
      */
     public function clean()
     {
-        $process = new Process($this->getManager()->getCrontabExecutable() . ' -r');
+        $process = new Process($this->getManager()->getCrontabExecutable().' -r');
         $process->run();
 
         return $this;
@@ -186,6 +186,7 @@ class BasicCron
         $job = $refrector->parse($job);
 
         $this->getManager()->removeJob($job);
+
         return $this;
     }
 
