@@ -46,7 +46,7 @@ class Task
      * @param string $command
      * @return PhpFileTask
      */
-    public static function file($command)
+    public static function php($command)
     {
         return new PhpFileTask($command);
     }
