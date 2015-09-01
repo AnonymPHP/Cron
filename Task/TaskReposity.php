@@ -121,9 +121,15 @@ class TaskReposity extends Schedule
         }
 
         $response = CronExpression::factory($this->getPatternString())->isDue($date->toDateTimeString());
-        return $response;
+        return $response === true && $this->resolveWhen();
     }
 
+
+    private function resolveWhen(){
+        $when = $this->when;
+
+        return $when() === true ? true:false;
+    }
     /**
      * get the base path
      *
