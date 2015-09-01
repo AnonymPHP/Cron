@@ -26,6 +26,9 @@ class ConsoleTask extends PhpTask
      */
     public function setCommand($command, $base = '')
     {
+
+        $base = '' !== $base ? $base : BASE;
+
          parent::setCommand($base.' anonym '.$command);
 
         return $this;
