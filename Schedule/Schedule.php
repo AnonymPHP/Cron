@@ -75,6 +75,43 @@ class Schedule
     protected $when;
 
     /**
+     * before callbacks
+     *
+     * @var array
+     */
+    protected $before;
+
+
+    /**
+     * after callbacks
+     *
+     * @var array
+     */
+    protected $after;
+
+    /**
+     * add a before callback
+     *
+     * @param Closure $closure
+     *
+     * @return $this
+     */
+    public function before(Closure $closure){
+        $this->before[] = $closure;
+    }
+
+    /**
+     * add an after callback
+     *
+     * @param Closure $closure
+     *
+     * @return $this
+     */
+    public function after(Closure $closure){
+        $this->after[] = $closure;
+    }
+
+    /**
      * register the when instance
      *
      * @param Closure $when
