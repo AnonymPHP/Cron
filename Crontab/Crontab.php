@@ -221,7 +221,14 @@ class Crontab
      */
     public function jobExists($job = '')
     {
-        exec('crontab -l', $jobs);
+        $process = new \Symfony\Component\Process\Process('crontab -l');
+        $process->run();
+
+        $output = ($process->getIncrementalOutput());
+
+        $jobs = array_filter(explode(PHP_EOL, $output), function($line) {
+            return '' != trim($line);
+        });
 
         return is_array($jobs) ?  array_search($job, $jobs) : false;
     }
